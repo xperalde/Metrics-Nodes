@@ -24,7 +24,10 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <p className="app-title">Dashboard Рыжков Данила</p>
+      <div style={{display: 'flex', alignItems: 'center', marginBottom: '15px'}}>
+        <img src="../public/dashboard.png" alt="logo" className="app-logo" />
+        <p className="app-title">Dashboard Рыжков Данила</p>
+      </div>
       <div className="main-layout">
         <div className="sidebar"><GroupList /></div>
         <div className="node-list"><NodeList /></div>

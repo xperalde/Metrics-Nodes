@@ -10,7 +10,7 @@ const NodeDetails = () => {
   const node = groups.find(item => item.node_id === nodeId);
   const nodeMetrics = metrics.filter(m => m.node_id === nodeId);
 
-  if (!node) return <div>Выберите ноду</div>;
+  if (!node) return <h2>Выберите ноду</h2>;
 
   const latestMetric = nodeMetrics[nodeMetrics.length - 1] || {};
 
