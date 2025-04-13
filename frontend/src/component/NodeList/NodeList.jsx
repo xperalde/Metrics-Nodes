@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectNode } from '../features/SelectedSlice'
-
+import { selectNode } from '../../features/SelectedSlice'
+import './NodeList.css'
 const NodeList = () => {
   const dispatch = useDispatch();
   const groups = useSelector(state => state.groups.list);
@@ -31,7 +31,7 @@ const NodeList = () => {
   };
 
   return (
-    <div>
+    <div className="node-list-container">
       <h2>Ноды</h2>
       {nodes.map(node => {
         const worst = getWorstMetric(node.node_id);
@@ -41,31 +41,13 @@ const NodeList = () => {
           <div
             key={node.node_id}
             onClick={() => dispatch(selectNode(node.node_id))}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '10px',
-              padding: '8px',
-              marginBottom: '6px',
-              border: selectedNodeId === node.node_id ? '2px solid black' : '1px solid #ccc',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              backgroundColor: '#f9f9f9',
-            }}
+            className={`node-item ${selectedNodeId === node.node_id ? 'selected' : ''}`}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div
-                style={{
-                  width: 12,
-                  height: 12,
-                  borderRadius: '50%',
-                  backgroundColor: node.node_status_color || 'black',
-                }}
-              />
+            <div className="node-info">
+              <div className="status-indicator" style={{ backgroundColor: node.node_status_color || 'black' }} />
               <div>{node.node_name}</div>
             </div>
-            <div style={{ color: highlight }}>
+            <div className="node-worst-metric" style={{ color: highlight }}>
               {worst.name}: {worst.value ?? '—'}%
             </div>
           </div>

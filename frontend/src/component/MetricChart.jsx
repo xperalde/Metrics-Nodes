@@ -58,7 +58,17 @@ const MetricChart = ({ metrics }) => {
     },
   };
 
-  return <Line data={data} options={options} />;
+  return (
+    <div
+      style={{
+        marginTop: '10px',
+        paddingTop: '10px',
+        borderTop: '1px solid #ddd',
+      }}
+    >
+      <Line data={data} options={options} />
+    </div>
+  );
 };
 
 export default MetricChart;

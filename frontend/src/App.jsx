@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import GroupList from './component/GroupList'
-import NodeDetails from './component/NodeDetails'
-import NodeList from './component/NodeList'
+import './App.css'
+import GroupList from './component/GroupList/GroupList'
+import NodeDetails from './component/NodeDetail/NodeDetails'
+import NodeList from './component/NodeList/NodeList'
 import { getGroups } from './features/GroupsSlice'
 import { getMetrics } from './features/MetricsSlice'
 const App = () => {
@@ -22,12 +23,12 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div className="app">
-      <h1>Мониторинг</h1>
-      <div className="app" style={{ display: 'flex', gap: '20px', padding: '20px' }}>
-        <div style={{ width: '20%' }}><GroupList /></div>
-      <div style={{ width: '30%' }}><NodeList /></div>
-      <div style={{ width: '50%' }}><NodeDetails /></div>
+    <div className="app-container">
+      <p className="app-title">Dashboard Рыжков Данила</p>
+      <div className="main-layout">
+        <div className="sidebar"><GroupList /></div>
+        <div className="node-list"><NodeList /></div>
+        <div className="node-details"><NodeDetails /></div>
       </div>
     </div>
   );

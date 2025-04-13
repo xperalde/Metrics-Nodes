@@ -1,0 +1,26 @@
+.node-details-container section {
+  margin-top: 10px;
+}
+
+.node-status {
+  font-weight: bold;
+}
+
+.node-details-container ul {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.node-details-container li {
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+
+.node-details-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.node-details-container li {
+  font-size: 1rem;
+}

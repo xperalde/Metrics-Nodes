@@ -1,0 +1,35 @@
+.app-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.app-title {
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.main-layout {
+  display: flex;
+  gap: 20px;
+}
+
+.sidebar, .node-list, .node-details {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+  width: 20%;
+}
+
+.node-list {
+  width: 30%;
+}
+
+.node-details {
+  width: 50%;
+}

@@ -1,7 +1,7 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectGroup } from '../features/SelectedSlice';
-
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectGroup } from '../../features/SelectedSlice'
+import './GroupList.css'
 const statusPriority = {
   black: 6,
   darkred: 5,
@@ -47,8 +47,8 @@ const GroupList = () => {
   };
 
   return (
-    <div>
-      <h2>Группы</h2>
+    <div className="group-list">
+      <h2 className="group-list-title">Группы</h2>
       {Object.values(grouped).map(group => {
         const worstStatusColor = getWorstStatus(group.nodes);
         const statusLabel = statusText[worstStatusColor] || 'UNKNOWN';
@@ -57,28 +57,14 @@ const GroupList = () => {
           <div
             key={group.group_id}
             onClick={() => dispatch(selectGroup(group.group_id))}
-            style={{
-              padding: '8px',
-              marginBottom: '6px',
-              border: selectedGroupId === group.group_id ? '2px solid black' : '1px solid #ccc',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              backgroundColor: '#f2f2f2',
-            }}
+            className={`group-item ${selectedGroupId === group.group_id ? 'selected' : ''}`}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div
-                style={{
-                  width: 12,
-                  height: 12,
-                  borderRadius: '50%',
-                  backgroundColor: worstStatusColor,
-                }}
-              />
-              <div>{group.group_name}</div>
-            </div>
-            <div style={{ marginTop: '4px', fontSize: '0.9rem', color: '#777' }}>
-              Статус: {statusLabel}
+            <div className="group-info">
+              <div className="status-indicator" style={{ backgroundColor: worstStatusColor }} />
+              <div className="group-text">
+                <div className="group-name">{group.group_name}</div>
+                <div className="group-status">Статус: {statusLabel}</div>
+              </div>
             </div>
           </div>
         );
